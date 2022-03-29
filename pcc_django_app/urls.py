@@ -22,5 +22,5 @@ urlpatterns = [
     # アプリ本体
     path('home/', include('pcc_home.urls')),
     # ログイン／ログアウトページ
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls')),
 ]

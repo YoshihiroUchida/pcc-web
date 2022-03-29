@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color: #EDF7FF">
     <nav class="navbar navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="#">PCC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,8 @@
         <!--ログイン中-->
         {% if user.is_authenticated %}
         <p class="text-center">{{ user.username }}のページ</p>
+
+        <div class="bg-light p-2 m-1">
         <!--(1)-->
         <h1 class="display-4 text-secondary" id="contents">CONTENTS</h1>
         <p>プログラミング</p>
@@ -50,12 +52,13 @@
         <h1 class="display-4 text-secondary" id="other">OTHER</h1>
         <p>準備中…</p>
         <hr>
-        <p class="text-center"><a class="btn btn-danger" href="{% url 'logout' %}">ログアウト</a></p>
+        </div>
+        <p class="text-center"><a class="btn btn-danger" href="{% url 'accounts:logout' %}">ログアウト</a></p>
 
         <!--ログアウト中-->
         {% else %}
         <p class="text-center">ログインしていません</p>
-        <p class="text-center"><a class="btn btn-primary" href="{% url 'login' %}" role="button">ログインする</a></p>
+        <p class="text-center"><a class="btn btn-primary" href="{% url 'accounts:login' %}" role="button">ログインする</a></p>
         {% endif %}
     </div>
 
