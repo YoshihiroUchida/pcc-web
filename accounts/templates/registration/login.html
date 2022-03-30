@@ -13,7 +13,7 @@
     </nav>
 
     <div class="container">
-        <h1 class="text-primary text-center">ログイン画面</h1>
+        <p class="display-4 text-primary text-center">PCC Office Login</p>
 
         <div class="col-md-7 mx-auto">
             {% for error in form.non_field_errors %}
@@ -27,7 +27,6 @@
                 {% for field in form %}
                 <div class="form-group has-feedback">{{ field }}</div>
                 {% endfor %}
-            
                 <button type="submit" class="btn btn-primary btn-block">ログイン</button>
             </form>
         </div>

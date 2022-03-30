@@ -34,7 +34,7 @@
     </nav>
 
     <div class="container">
-        <h1 class="display-2 text-primary text-center">{{ title }}</h1>
+        <h1 class="display-3 text-primary text-center">{{ title }}</h1>
 
         <!--ログイン中-->
         {% if user.is_authenticated %}
@@ -42,7 +42,7 @@
 
         <div class="bg-light p-2 m-1">
         <!--(1)-->
-        <h1 class="display-4 text-secondary" id="contents">CONTENTS</h1>
+        <p class="h2 text-secondary" id="contents">CONTENTS</p>
         <p>プログラミング</p>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR_aklF0GAAx6mPr4eUXhtUS-nZNcu4jwqqdKyZbkxD1QvKQzfLSDzYizcyGXNFyJ4QGXNyaHDiK-Df/embed?start=false&loop=false&delayms=3000" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
@@ -50,11 +50,11 @@
         <hr>
 
         <!--(2)-->
-        <h1 class="display-4 text-secondary" id="other">OTHER</h1>
+        <p class="h2 text-secondary" id="other">OTHER</p>
         <p>準備中…</p>
         <hr>
         </div>
-        <p class="text-center"><a class="btn btn-danger" href="{% url 'accounts:logout' %}">ログアウト</a></p>
+        <p class="text-center m-2"><a class="btn btn-danger" href="{% url 'accounts:logout' %}">ログアウト</a></p>
 
         <!--ログアウト中-->
         {% else %}
