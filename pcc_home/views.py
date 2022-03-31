@@ -1,23 +1,27 @@
 from django.shortcuts import render
 
-def index(request):
-    contents = {
-        "name" : "Programming",
-        "desc" : "準備中…",
+def Set_contents(n, d, u):
+    data = {
+        "name" : n, 
+        "desc" : d, 
+        "url"  : u,
     }
-    other = {
-        "name" : "Other",
-        "desc" : "準備中…",
-    }
-    news = {
-        "name" : "News",
-        "desc" : "準備中…",
-    }
+    return data
 
-    lst = [contents, other, news]
+#--------------------------------------------------
+def index(request):
+    prog = Set_contents("Programming", "Pythonによるプログラミング", "program")
+    other = Set_contents("Other", "準備中", "#")
+    news = Set_contents("News", "準備中", "#")
+
+    lst = [prog, other, news]
 
     params = {
         'title' : 'PCC Office',
         'content_list' : lst,
     }
     return render(request, 'pcc_home/index.html', params)
+
+#--------------------------------------------------
+def program(request):
+    return render(request, 'pcc_home/page1.html')
