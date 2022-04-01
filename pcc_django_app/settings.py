@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # ログインが必要なページに認証していないユーザがアクセスした場合のURL
-LOGIN_URL = 'login'
+LOGIN_URL = 'accounts:login'
 # ログイン後にアクセスされるURL
 LOGIN_REDIRECT_URL = 'index'
 # ログアウト後にアクセスされるURL

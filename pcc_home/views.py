@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 def Set_contents(n, d, u):
     data = {
@@ -23,5 +24,6 @@ def index(request):
     return render(request, 'pcc_home/index.html', params)
 
 #--------------------------------------------------
+@login_required
 def program(request):
-    return render(request, 'pcc_home/page1.html')
+    return render(request, 'pcc_home/page1.html', {})
