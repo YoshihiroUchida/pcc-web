@@ -1,3 +1,4 @@
 from django.contrib import admin
+from .models import Prog_contents
 
-# Register your models here.
+admin.site.register(Prog_contents)

@@ -17,19 +17,17 @@
 
     <div class="container">
         <p class="display-4 text-primary text-center">{{ title }}</p>
-        
+
         <!--タブ部分-->
         <ul class="nav nav-pills nav-justified mb-4 bg-light rounded" id="pills-tab" role="tablist">
             {% for item in tab_list %}
             <li class="nav-item">
-                {% if item.number == "1" %}
-                <a class="nav-link active" id="pills-{{ item.number }}-tab" data-toggle="pill"
-                    href="#pills-{{ item.number }}" role="tab" aria-controls="pills-{{ item.number }}"
-                    aria-selected="true">{{ item.number }}</a>
+                {% if item.id == 1 %}
+                <a class="nav-link active" id="pills-{{ item.id }}-tab" data-toggle="pill" href="#pills-{{ item.id }}"
+                    role="tab" aria-controls="pills-{{ item.id }}" aria-selected="true">{{ item.id }}</a>
                 {% else %}
-                <a class="nav-link" id="pills-{{ item.number }}-tab" data-toggle="pill" 
-                    href="#pills-{{ item.number }}" role="tab" aria-controls="pills-{{ item.number }}" 
-                    aria-selected="false">{{ item.number }}</a>
+                <a class="nav-link" id="pills-{{ item.id }}-tab" data-toggle="pill" href="#pills-{{ item.id }}"
+                    role="tab" aria-controls="pills-{{ item.id }}" aria-selected="false">{{ item.id }}</a>
                 {% endif %}
             </li>
             {% endfor %}
@@ -38,28 +36,28 @@
         <!--タブと関連した内容の表示-->
         <div class="tab-content" id="pills-tabContent">
             {% for item in tab_list %}
-            {% if item.number == "1" %}
-            <div class="tab-pane fade show active" id="pills-{{ item.number }}" role="tabpanel"
-                aria-labelledby="pills-{{ item.number }}-tab">
+            {% if item.id == 1 %}
+            <div class="tab-pane fade show active" id="pills-{{ item.id }}" role="tabpanel"
+                aria-labelledby="pills-{{ item.id }}-tab">
                 <div class="p-3 bg-light">
-                    <p class="h2 text-center">{{ item.sub_title }}</p>
+                    <p class="h2 text-center">{{ item.title }}</p>
                     <div class="embed-responsive embed-responsive-16by9">
-                        {% if item.url != "#" %}
-                        <iframe src="{{ item.url }}" frameborder="0" allowfullscreen="true" mozallowfullscreen="true"
-                            webkitallowfullscreen="true"></iframe>
+                        {% if item.web_site != "#" %}
+                        <iframe src="{{ item.web_site }}" frameborder="0" allowfullscreen="true"
+                            mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                         {% endif %}
                     </div>
                 </div>
             </div>
             {% else %}
-            <div class="tab-pane fade" id="pills-{{ item.number }}" role="tabpanel"
-                aria-labelledby="pills-{{ item.number }}-tab">
+            <div class="tab-pane fade" id="pills-{{ item.id }}" role="tabpanel"
+                aria-labelledby="pills-{{ item.id }}-tab">
                 <div class="p-3 bg-light">
-                    <p class="h2 text-center">{{ item.sub_title }}</p>
+                    <p class="h2 text-center">{{ item.title }}</p>
                     <div class="embed-responsive embed-responsive-16by9">
-                        {% if item.url != "#" %}
-                        <iframe src="{{ item.url }}" frameborder="0" allowfullscreen="true" mozallowfullscreen="true"
-                            webkitallowfullscreen="true"></iframe>
+                        {% if item.web_site != "#" %}
+                        <iframe src="{{ item.web_site }}" frameborder="0" allowfullscreen="true"
+                            mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                         {% endif %}
                     </div>
                 </div>
