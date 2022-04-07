@@ -61,3 +61,9 @@ def program(request):
         'tab_list' : data,
     }
     return render(request, 'pcc_home/page1.html', params)
+
+#==================================================
+# ニュースの表示
+@login_required
+def news(request):
+    return render(request, 'pcc_home/news.html', {})
