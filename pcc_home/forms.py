@@ -1,8 +1,8 @@
 from django import forms
-from .models import Prog_contents
+from .models import PG_contents
 
-#--------------------------------------------------
-class Prog_contents_form(forms.ModelForm):
+#==================================================
+class PG_Edit_form(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.label_suffix = " "
@@ -10,16 +10,16 @@ class Prog_contents_form(forms.ModelForm):
             field.widget.attrs['class'] = 'form-control'
 
     class Meta:
-        model = Prog_contents
-        fields = ['num', 'title', 'web_site']
+        model = PG_contents
+        fields = ['num', 'title', 'url']
         labels = {
             'num'       : '番号',
             'title'     : 'タイトル',
-            'web_site'  : 'URL',
+            'url'  : 'URL',
         }
 
-#--------------------------------------------------
-class Prog_form(forms.Form):
+#==================================================
+class PG_Reg_form(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.label_suffix = " "
@@ -30,5 +30,5 @@ class Prog_form(forms.Form):
     title = forms.CharField(label = 'タイトル', \
         widget = forms.TextInput(attrs = {'class' : 'form-control'}))
 
-    web_site = forms.URLField(label = 'URL', \
+    url = forms.URLField(label = 'URL', \
         widget = forms.TextInput(attrs = {'class' : 'form-control'}))

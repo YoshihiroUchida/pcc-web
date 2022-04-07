@@ -1,10 +1,22 @@
 from django.db import models
 
-class Prog_contents(models.Model):
+#==================================================
+# TOPページのコンテンツ
+class Home_contents(models.Model):
+    title = models.CharField(max_length = 100)  # タイトル
+    desc = models.CharField(max_length = 200)   # 概要
+    page = models.CharField(max_length = 100)   # ページ (URL)
+    auth = models.BooleanField(default = False) # 権限
+
+    def __str__(self):
+        return self.title
+
+#==================================================
+# プログラミング教材関連
+class PG_contents(models.Model):
     num = models.IntegerField(default = 0)      # 番号
     title = models.CharField(max_length = 100)  # タイトル
-    web_site = models.URLField(blank = True)    # URL
+    url = models.URLField(blank = True)         # URL
 
-    # レコードの表示部分
     def __str__(self):
         return str(self.num) + '_' + self.title

@@ -45,7 +45,7 @@
                     <!--スライド部分-->
                     <div class="embed-responsive embed-responsive-16by9">
                         {% if item.web_site != "#" %}
-                        <iframe src="{{ item.web_site }}" frameborder="0" allowfullscreen="true"
+                        <iframe src="{{ item.url }}" frameborder="0" allowfullscreen="true"
                             mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                         {% endif %}
                     </div>
@@ -66,7 +66,7 @@
                     <p class="h2 text-center">{{ item.title }}</p>
                     <div class="embed-responsive embed-responsive-16by9">
                         {% if item.web_site != "#" %}
-                        <iframe src="{{ item.web_site }}" frameborder="0" allowfullscreen="true"
+                        <iframe src="{{ item.url }}" frameborder="0" allowfullscreen="true"
                             mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
                         {% endif %}
                     </div>

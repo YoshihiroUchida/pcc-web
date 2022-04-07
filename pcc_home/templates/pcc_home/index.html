@@ -66,8 +66,8 @@
             {% for item in content_list %}
             <div class="contents col-md-5 m-3" style="min-height: 180px">
                 
-                {% if item.url != "#" %}
-                <a href="{% url item.url %}" class="link"></a>
+                {% if item.page != "#" %}
+                <a href="{% url item.page %}" class="link"></a>
                 {% else %}
                 <a href="#" class="link"></a>
                 {% endif %}
@@ -76,7 +76,7 @@
                     <i class="fa-solid fa-chalkboard fa-3x"></i>
                 </div>
                 <div class="text-center">
-                    <p class="h2 text-secondary">{{ item.name }}</p>
+                    <p class="h2 text-secondary">{{ item.title }}</p>
                     <p>{{ item.desc }}</p>
                 </div>
             </div>
