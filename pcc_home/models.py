@@ -6,6 +6,7 @@ class Home_contents(models.Model):
     title = models.CharField(max_length = 100)  # タイトル
     desc = models.CharField(max_length = 200)   # 概要
     page = models.CharField(max_length = 100)   # ページ (URL)
+    icon = models.CharField(max_length = 200)   # HTMLのアイコン
     auth = models.BooleanField(default = False) # 権限
 
     def __str__(self):

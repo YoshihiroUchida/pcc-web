@@ -40,15 +40,12 @@
             <ul class="navbar-nav">
                 <!--リストの項目群-->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">TOP<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="https://www.metro.ed.jp/oujisogo-h/">東京都立王子総合高等学校</a>
                 </li>
                 <!--ログイン中に表示-->
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#contents">CONTENTS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#other">OTHER</a>
+                    <a class="nav-link" href="{% url 'accounts:logout' %}">ログアウト</a>
                 </li>
                 {% endif %}
             </ul>
@@ -73,7 +70,7 @@
                 {% endif %}
 
                 <div class="text-center p-3">
-                    <i class="fa-solid fa-chalkboard fa-3x"></i>
+                    <i class="{{ item.icon }} fa-3x"></i>
                 </div>
                 <div class="text-center">
                     <p class="h2 text-secondary">{{ item.title }}</p>

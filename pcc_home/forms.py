@@ -13,9 +13,9 @@ class PG_Edit_form(forms.ModelForm):
         model = PG_contents
         fields = ['num', 'title', 'url']
         labels = {
-            'num'       : '番号',
-            'title'     : 'タイトル',
-            'url'  : 'URL',
+            'num'   : '番号',
+            'title' : 'タイトル',
+            'url'   : 'URL',
         }
 
 #==================================================
