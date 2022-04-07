@@ -22,12 +22,12 @@
         <ul class="nav nav-pills nav-justified mb-4 bg-light rounded" id="pills-tab" role="tablist">
             {% for item in tab_list %}
             <li class="nav-item">
-                {% if item.id == 1 %}
+                {% if item.num == 1 %}
                 <a class="nav-link active" id="pills-{{ item.id }}-tab" data-toggle="pill" href="#pills-{{ item.id }}"
-                    role="tab" aria-controls="pills-{{ item.id }}" aria-selected="true">{{ item.id }}</a>
+                    role="tab" aria-controls="pills-{{ item.id }}" aria-selected="true">{{ item.num }}</a>
                 {% else %}
                 <a class="nav-link" id="pills-{{ item.id }}-tab" data-toggle="pill" href="#pills-{{ item.id }}"
-                    role="tab" aria-controls="pills-{{ item.id }}" aria-selected="false">{{ item.id }}</a>
+                    role="tab" aria-controls="pills-{{ item.id }}" aria-selected="false">{{ item.num }}</a>
                 {% endif %}
             </li>
             {% endfor %}
@@ -36,11 +36,14 @@
         <!--タブと関連した内容の表示-->
         <div class="tab-content" id="pills-tabContent">
             {% for item in tab_list %}
-            {% if item.id == 1 %}
+            {% if item.num == 1 %}
             <div class="tab-pane fade show active" id="pills-{{ item.id }}" role="tabpanel"
                 aria-labelledby="pills-{{ item.id }}-tab">
                 <div class="p-3 bg-light">
+                    <!--タイトル部分-->
                     <p class="h2 text-center">{{ item.title }}</p>
+
+                    <!--スライド部分-->
                     <div class="embed-responsive embed-responsive-16by9">
                         {% if item.web_site != "#" %}
                         <iframe src="{{ item.web_site }}" frameborder="0" allowfullscreen="true"
@@ -48,7 +51,15 @@
                         {% endif %}
                     </div>
                 </div>
+
+                {% if user.is_superuser %}
+                <!--編集リンク-->
+                <p class="text-center m-2">
+                    <a class="btn btn-success" href="{% url 'edit' item.id %}">データ編集</a>
+                </p>
+                {% endif %}
             </div>
+
             {% else %}
             <div class="tab-pane fade" id="pills-{{ item.id }}" role="tabpanel"
                 aria-labelledby="pills-{{ item.id }}-tab">
@@ -61,12 +72,20 @@
                         {% endif %}
                     </div>
                 </div>
+                {% if user.is_superuser %}
+                <!--編集リンク-->
+                <p class="text-center m-2">
+                    <a class="btn btn-success" href="{% url 'edit' item.id %}">データ編集</a>
+                </p>
+                {% endif %}
             </div>
             {% endif %}
             {% endfor %}
         </div>
 
-        <p class="text-center"><a href="{% url 'index' %}">TOPへ戻る</a></p>
+        <p class="text-center">
+            <a href="{% url 'index' %}">TOPへ戻る</a>
+        </p>
     </div>
 
     <!--JSファイル群-->
