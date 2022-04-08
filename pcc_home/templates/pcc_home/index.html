@@ -9,12 +9,18 @@
     <link href="https://use.fontawesome.com/releases/v6.0.0/css/all.css" rel="stylesheet">
     <style type="text/css">
         .contents {
+            border: 1px solid #DDD;
             background-color: #FFFFFF;
+            transition-duration: 0.5s;
         }
+
         /* マウスと重なる時 */
         .contents:hover {
-            background-color: #F5F5F5;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+            transform: translateY(-10px);
+            transition-duration: 0.5s;
         }
+
         /* 親クラス全体をリンクにする */
         .link {
             display: block;
@@ -28,7 +34,7 @@
 </head>
 
 <body style="background-color: #EDF7FF">
-    <!--ナビゲーションバーの部分-->
+    <!--上部分-->
     <nav class="navbar navbar navbar-dark bg-primary">
         <a class="navbar-brand" href="#">PCC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -56,13 +62,13 @@
     <div class="container">
         <!--ログイン中-->
         {% if user.is_authenticated %}
-        <p class="text-center">{{ user.username }}のページ</p>
+        <p class="text-center">-{{ user.username }}-のページ</p>
 
         <div class="row justify-content-between">
-            <!--コンテンツ毎に表示-->
+            <!--コンテンツ毎-->
             {% for item in content_list %}
             <div class="contents col-md-5 m-3" style="min-height: 180px">
-                
+
                 {% if item.page != "#" %}
                 <a href="{% url item.page %}" class="link"></a>
                 {% else %}

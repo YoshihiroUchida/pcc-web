@@ -53,7 +53,7 @@
 
                 {% if user.is_superuser %}
                 <!--編集リンク-->
-                <p class="text-center m-2">
+                <p class="text-center m-3">
                     <a class="btn btn-success" href="{% url 'edit' item.id %}">データ編集</a>
                 </p>
                 {% endif %}
@@ -73,7 +73,7 @@
                 </div>
                 {% if user.is_superuser %}
                 <!--編集リンク-->
-                <p class="text-center m-2">
+                <p class="text-center m-3">
                     <a class="btn btn-success" href="{% url 'edit' item.id %}">データ編集</a>
                 </p>
                 {% endif %}
@@ -82,8 +82,8 @@
             {% endfor %}
         </div>
 
-        <p class="text-center">
-            <a href="{% url 'index' %}">TOPへ戻る</a>
+        <p class="text-center m-3">
+            <a href="{% url 'index' %}">前のページへ戻る</a>
         </p>
     </div>
 

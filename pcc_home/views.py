@@ -29,7 +29,7 @@ def setting(request):
         post_object = Programming_contents() # モデルのインスタンス
         content = Programming_edit_form(request.POST, instance = post_object)
         content.save()
-        return redirect(to = '/home/program') # スライド画面へ
+        return redirect(to = '/home/programming') # スライド画面へ
 
     params = {
         'form' : Programming_reg_form(),
@@ -44,7 +44,7 @@ def edit(request, num):
     if (request.method == 'POST'):
         content = Programming_edit_form(request.POST, instance = edit_object)
         content.save()
-        return redirect(to = '/home/program')
+        return redirect(to = '/home/programming')
 
     params = {
         'id' : num,
@@ -55,13 +55,13 @@ def edit(request, num):
 #==================================================
 # プログラミング教材の表示
 @login_required
-def program(request):
+def programming(request):
     data = Programming_contents.objects.all().order_by('num')
     params = {
         'title' : 'Programming',
         'tab_list' : data,
     }
-    return render(request, 'pcc_home/page1.html', params)
+    return render(request, 'pcc_home/programming.html', params)
 
 #==================================================
 # ニュースの表示
