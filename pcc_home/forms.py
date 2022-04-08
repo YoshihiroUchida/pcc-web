@@ -1,8 +1,8 @@
 from django import forms
-from .models import PG_contents
+from .models import Programming_contents
 
 #==================================================
-class PG_Edit_form(forms.ModelForm):
+class Programming_edit_form(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.label_suffix = " "
@@ -10,7 +10,7 @@ class PG_Edit_form(forms.ModelForm):
             field.widget.attrs['class'] = 'form-control'
 
     class Meta:
-        model = PG_contents
+        model = Programming_contents
         fields = ['num', 'title', 'url']
         labels = {
             'num'   : '番号',
@@ -19,7 +19,7 @@ class PG_Edit_form(forms.ModelForm):
         }
 
 #==================================================
-class PG_Reg_form(forms.Form):
+class Programming_reg_form(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.label_suffix = " "

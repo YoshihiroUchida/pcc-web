@@ -17,20 +17,17 @@
     <div class="container">
         <p class="display-4 text-primary text-center">News</p>
         
-        <table class="table bg-light">
-            <thead>
+        <table class="table table-bordered bg-light">
               <tr>
-                <th scope="col">月日</th>
+                <th scope="col">日付</th>
                 <th scope="col">内容</th>
               </tr>
-            </thead>
-
-            <tbody>
+              {% for item in topics %}
               <tr>
-                <th scope="row">2022/04/01</th>
-                <td>サイトをオープンしました。</td>
+                <td style="width: 30%">{{ item.date }}</td>
+                <td>{{ item.desc }}</td>
               </tr>
-            </tbody>
+              {% endfor %}
           </table>
         
         <p class="text-center">

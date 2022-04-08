@@ -14,10 +14,19 @@ class Home_contents(models.Model):
 
 #==================================================
 # プログラミング教材関連
-class PG_contents(models.Model):
+class Programming_contents(models.Model):
     num = models.IntegerField(default = 0)      # 番号
     title = models.CharField(max_length = 100)  # タイトル
     url = models.URLField(blank = True)         # URL
 
     def __str__(self):
         return str(self.num) + '_' + self.title
+
+#==================================================
+# Newsページの内容
+class News_list(models.Model):
+    date = models.DateField()                   # 日時
+    desc = models.CharField(max_length = 200)   # 文章
+
+    def __str__(self):
+        return str(self.date) + self.desc
